@@ -1,0 +1,82 @@
+{
+  "users": [
+    {
+      "id": "0",
+      "name": "Admin",
+      "email": "admin@admin.com",
+      "password": "admin023",
+      "role": "admin",
+      "phone": "0234567890",
+      "enrollNumber": "98765432000000",
+      "dateOfAdmission": "00-Jan-2020"
+    },
+    {
+      "id": "2",
+      "name": "asdawd",
+      "email": "dasda@dwqdqw",
+      "password": "123",
+      "role": "user",
+      "phone": "123456789",
+      "enrollNumber": "175223489441080",
+      "dateOfAdmission": "Jul 11, 2025"
+    },
+    {
+      "id": "3",
+      "name": "David",
+      "email": "david123orjuela@gmail.com",
+      "password": "123",
+      "role": "user",
+      "phone": "123456789",
+      "enrollNumber": "1752236351454214",
+      "dateOfAdmission": "Jul 11, 2025"
+    },
+    {
+      "id": "6",
+      "name": "David",
+      "email": "dasda@dwqdqe",
+      "password": "123",
+      "role": "user",
+      "phone": "12345678",
+      "enrollNumber": "1752236591643109",
+      "dateOfAdmission": "Jul 11, 2025"
+    }
+  ],
+  "courses": [
+    {
+      "id": "0",
+      "title": "xawundefined",
+      "description": "awdawd",
+      "startDate": "2025-07-11",
+      "duration": "dwqdqwdqw"
+    },
+    {
+      "id": "2",
+      "title": "qwdcqecwece",
+      "description": "cqwcewvwvrebrebrtnbtr",
+      "startDate": "2025-07-12",
+      "duration": "ascqwcww"
+    }
+  ],
+  "enrollments": [
+    {
+      "id": "0",
+      "userId": "2",
+      "courseId": "0"
+    },
+    {
+      "id": "1",
+      "userId": "2",
+      "courseId": "2"
+    },
+    {
+      "id": "3",
+      "userId": "2",
+      "courseId": "0"
+    },
+    {
+      "id": "4",
+      "userId": "3",
+      "courseId": "0"
+    }
+  ]
+}

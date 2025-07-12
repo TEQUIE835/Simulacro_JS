@@ -1,0 +1,20 @@
+{
+  "name": "simulacro_js",
+  "version": "1.0.0",
+  "description": "Esta es una actividad disenada para probar mi rendimiento en JS con DOM y darle funcionalidad a una pagina web, aplicando bases de datos JSON y localstorage, incluira un login y una pantalla de usuarios",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "vite": "^7.0.4"
+  },
+  "dependencies": {
+    "sweetalert2": "^11.6.13"
+  }
+}
