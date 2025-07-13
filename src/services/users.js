@@ -98,13 +98,13 @@ export async function userLogin(){
 export async function userListDashboard(){
      let listingSection = document.getElementById(`listing`);
         let html = ''
-        html = `<table class="user-table">
+        html = `<div class="user-table-container"><table class="user-table">
         <theader><tr><td>ID</td><td>name</td><td>email</td><td>phone</td><td>enrollNumber</td><td>role</td><td>Edit</td><td>Delete</td></tr></theader><tbody>`
         const users = await getData(userURL);
         users.forEach(u => {
             html += `<tr><td>${u.id}</td><td>${u.name}</td><td>${u.email}</td><td>${u.phone}</td><td>${u.enrollNumber}</td><td>${u.role}</td><td><button class="admin-btn edit-btn" data-id="${u.id}">✏️</button></td><td><button class="admin-btn delete-btn" data-id="${u.id}">🗑️</button></td></tr>`
         });
-        html += `</tbody></table>`;
+        html += `</tbody></table></div>`;
         listingSection.innerHTML = html;
     
     document.querySelectorAll(`.edit-btn`).forEach(btn => {

@@ -111,6 +111,7 @@ ul{
     margin-bottom: 2%;
     text-align: center;
     font-size: large;
+    max-width: 80%;
 }
 .form-btn{
     font-size: larger;
@@ -118,6 +119,8 @@ ul{
     border: 0px;
     margin-top: 2%;
     background-color: darkmagenta;
+    max-width: 80%;
+    padding: 0.3rem;
 }
 
 button{
@@ -152,17 +155,19 @@ section#listing {
 }
 
 .user-table {
-  width: 90%;
+  max-width: 90%;
   margin: 1rem auto;
   border-collapse: separate;
   border-spacing: 0 10px;
   text-align: center;
+
 }
 
 .user-table th {
   background-color: #eee;
   padding: 10px;
   font-size: larger;
+  overflow-x: hidden;
 }
 
 .user-table td {
@@ -343,4 +348,64 @@ section#listing {
 
 .cancel-enroll-btn:active {
   transform: scale(0.95);
+}
+.hamburger {
+  display: none;
+  background: none;
+  color: white;
+  font-size: 2rem;
+  border: none;
+  margin: 1rem;
+  cursor: pointer;
+  z-index: 6;
+}
+
+.public-header .hamburger{
+  align-self: flex-start;
+}
+.user-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 1023px) {
+
+  .course-card {
+    width: 35%;
+  }
+  .sidebar-btn{
+    font-size: x-small;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .course-card {
+    width: 90%;
+  }
+
+
+  aside {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    height: 100%;
+    width: 60%;
+    background-color: #040926;
+    transition: left 0.3s ease-in-out;
+    z-index: 4;
+  }
+
+
+  .hamburger {
+    display: block;
+  }
+
+  aside.active {
+    left: 0;
+  }
+
+  main#app {
+    flex-direction: column;
+  }
 }

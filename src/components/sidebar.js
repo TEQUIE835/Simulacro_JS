@@ -33,3 +33,27 @@ export function giveUserButtonsFunctionalities(){
         listUserEnrollments();
     })
 }
+
+export function asignSidebarFunctions(){
+
+  const hamburger = document.getElementById('menu-toggle');
+  const sidebar = document.getElementById('sidebar');
+  if (!hamburger || !sidebar) return;
+
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    sidebar.classList.toggle('active');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+      sidebar.classList.remove('active');
+    }
+  });
+
+  document.querySelectorAll('.sidebar-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+    });
+  });
+}
