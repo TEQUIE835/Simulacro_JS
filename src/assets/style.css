@@ -12,35 +12,64 @@ body {
 
 header {
     background-image: linear-gradient(#731448, #D95F98);
+    z-index: 1;
+}
+.public-header{
     display: flex;
     flex-direction: row-reverse;
+    width: 100%;
 }
+.logged-header{
+    width: 100% ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 .header-btn {
     margin: 1rem;
     font-size: large;
     background-color: #040926;
     color: white;
+    border: 0px;
+    border-radius: 5%;
 }
 
 main#app {
-    flex: 1;
     display: flex;
+    flex: 1;
+    justify-content: center;
+    width: 100%; 
 }
 
 aside {
     width: 20%;
+    margin: 0;
     background-color: #040926;
     color: white;
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    height: 100vh;
+    box-sizing: border-box;
 }
 
 section#userCourseListing {
     flex: 1;
+    height: 100%;
     padding: 1rem;
     background-color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 footer {
@@ -51,7 +80,267 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 ul{
     list-style: none;
+}
+
+.form-section{
+    border: 1px solid black ;
+    padding: 30px;
+    align-self: center;
+    background-color: #D95F98;
+    max-width: 40%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-title{
+    margin-top: 0;
+    font-size: xx-large;
+}
+
+.form-label{
+    font-size: larger;
+    margin: 1px;
+}
+
+.form-input{
+    margin-bottom: 2%;
+    text-align: center;
+    font-size: large;
+}
+.form-btn{
+    font-size: larger;
+    border-radius: 5%;
+    border: 0px;
+    margin-top: 2%;
+    background-color: darkmagenta;
+}
+
+button{
+    transition: all 0.5s;
+}
+
+button:hover{
+    transform: scale(1.08);
+}
+
+button:active{
+    transform: scale(0.9);
+}
+
+section#listing {
+    flex: 1;
+    height: 100%;
+    padding: 1rem;
+    background-color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.header-name{
+    color: white;
+    margin-left: 2rem;
+    font-size: larger;
+}
+
+.user-table {
+  width: 90%;
+  margin: 1rem auto;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  text-align: center;
+}
+
+.user-table th {
+  background-color: #eee;
+  padding: 10px;
+  font-size: larger;
+}
+
+.user-table td {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.user-table tr {
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+}
+
+.admin-btn {
+  border: none;
+  padding: 0.5rem 0.7rem;
+  margin: 0 0.2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  color: white;
+}
+
+
+.edit-btn {
+  background-color: #007BFF; 
+}
+
+.edit-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+.edit-btn:active{
+    transform: scale(0.95);
+}
+.delete-btn {
+  background-color: #DC3545; 
+}
+
+.delete-btn:hover {
+  background-color: #a71d2a;
+  transform: scale(1.05);
+}
+
+.delete-btn:active{
+    transform: scale(0.95);
+}
+
+.sidebar-btn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  background-color: #1f2a48;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: left;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.sidebar-btn:hover {
+  background-color: #32416c;
+  transform: translateX(5px);
+}
+
+.sidebar-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #7066e0;
+}
+
+.sidebar-btn.active {
+  background-color: #7066e0;
+  font-weight: bold;
+}
+.admin-add-btn {
+  padding: 0.6rem 1.2rem;
+  background-color: #7066e0;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-add-btn:hover {
+  background-color: #5a4ed1;
+  transform: scale(1.05);
+}
+
+.admin-add-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.admin-add-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #b8b0f0;
+}
+
+.title{
+    width: 100%;
+}
+.courses-container{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.course-card{
+    width: 25%;
+    margin: 1rem;
+    border-radius: 5%;
+    padding: 0.75rem;
+    justify-content: space-evenly;
+    background-color: hsl(245, 27%, 65%);
+    box-shadow: 5px 5px 10px #666666;
+    transition: all 1s;
+}
+.course-card span{
+    margin: 2rem;
+}
+.course-card button {
+    margin: 0.8rem;
+}
+.course-card:hover{
+    transform: scale(1.05);
+}
+.enroll-btn {
+  background-color: #28a745; 
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.enroll-btn:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.enroll-btn:active {
+  transform: scale(0.95);
+}
+
+
+
+.cancel-enroll-btn {
+  background-color: #dc3545; 
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cancel-enroll-btn:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+.cancel-enroll-btn:active {
+  transform: scale(0.95);
 }

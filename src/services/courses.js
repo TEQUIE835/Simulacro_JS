@@ -8,18 +8,19 @@ import { navigate } from "../main";
 export async function coursesListDashboard(){
     let listingSection = document.getElementById(`listing`);
     let courses = await getData(courseURL);
-    let html = `<h1>Courses</h1> <button id="addCourse"> ➕ Add</button>` 
+    let html = `<div class="course-header"><h1 class="title">Courses</h1> <button id="addCourse" class="admin-add-btn"> ➕ Add</button></div> <div class="courses-container">` 
     courses.forEach(course =>{
-        html += `<article>
+        html += `<article class="course-card">
         <h2>${course.title}</h2>
         <p>${course.description}</p>
-        <span>Course ID: ${course.id}</span><br>
-        <span>Start Date: ${course.startDate}</span><br>
-        <span>Duration: ${course.duration}</span><br>
-        <button class="editCourse-btn" data-id="${course.id}">Edit</button>
-        <button class="deleteCourse-btn" data-id="${course.id}">Delete</button>
+        <span>Course ID: <b>${course.id}</b></span><br>
+        <span>Start Date: <b>${course.startDate}</b></span><br>
+        <span>Duration: <b>${course.duration}</b></span><br>
+        <button class="editCourse-btn admin-btn edit-btn" data-id="${course.id}">✏️</button>
+        <button class="deleteCourse-btn admin-btn delete-btn" data-id="${course.id}">🗑️</button>
         </article>`
     });
+    html += `</div>`
     listingSection.innerHTML = html
     document.getElementById(`addCourse`).addEventListener(`click`,async (e) =>{
         e.preventDefault();
@@ -57,10 +58,11 @@ export async function coursesListDashboard(){
                 startDate : formValues.startDate,
                 duration : formValues.duration
             };
+            await postData(courseURL, newCourse)
+            Swal.fire('Added!', 'Course has been added', 'success');
         };
 
-        await postData(courseURL, newCourse)
-        Swal.fire('Added!', 'Course has been added', 'success');
+        
         coursesListDashboard();
     });
     document.querySelectorAll(`.editCourse-btn`).forEach(btn => {
@@ -151,17 +153,18 @@ export async function coursesListDashboard(){
 export async function coursesListUser(){
     const listingSection = document.getElementById(`userCourseListing`);
     const courses = await getData(courseURL);
-    let html = `<h1>Courses</h1>`;
+    let html = `<h1 class="title">Courses</h1> <div class="courses-container">`;
     
     for (let course of courses){
-        html += `<article>
+        html += `<article class="course-card">
         <h2>${course.title}</h2>
         <p>${course.description}</p>
         <span>Date: ${course.startDate}</span><br>
         <span>Duration: ${course.duration}</span><br>
-        <button class="enroll-btn" data-id="${course.id}">Enroll</button>
+        <button class="enroll-btn" data-id="${course.id}">📄 Enroll</button>
     </article>`;
     };
+    html += `</div>`
     listingSection.innerHTML = html;
     document.querySelectorAll(`.enroll-btn`).forEach(btn => {
         btn.addEventListener(`click`, async (e) => {

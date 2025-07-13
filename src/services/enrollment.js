@@ -9,7 +9,7 @@ import { navigate } from "../main";
 export async function enrollmentsListDashboard(){
     const listingSection = document.getElementById(`listing`);
     const enrollments = await getData(enrollmentURL);
-    let html = `<h1>Enrollments</h1>`
+    let html = `<h1 class="title">Enrollments</h1> <div class="courses-container">`
     let user;
     let course;
     for (let enroll of enrollments) {
@@ -20,12 +20,14 @@ export async function enrollmentsListDashboard(){
             enrollmentsListDashboard();
         }
 
-        html += `<span>Enroll ID: ${enroll.id}</span>
+        html += `<article class = "course-card">
+        <span>Enroll ID: ${enroll.id}</span>
         <br> 
         <h2>${course.title}</h2>
         <h3>${user.name}</h3> 
-        <button class = "deleteEnroll-btn" data-id="${enroll.id}">Delete</button><br>`
+        <button class = "deleteEnroll-btn admin-btn delete-btn" data-id="${enroll.id}">🗑️</button><br></article>`
     };
+    html += `</div>`;
     listingSection.innerHTML = html
     document.querySelectorAll(`.deleteEnroll-btn`).forEach(btn => {
         btn.addEventListener(`click`, async (e) => {
@@ -94,19 +96,19 @@ export async function listUserEnrollments(){
             userEnrolls.push(enroll);
         };
     };
-    let html = `<h1>My courses</h1>`;
+    let html = `<h1 class="title">My courses</h1><div class="courses-container">`;
     for (let enroll of userEnrolls){
         let userCourse = await getData(`${courseURL}/${enroll.courseId}`);
-        html += `<article>
+        html += `<article class="course-card">
         <h2>${userCourse.title}</h2>
         <h3>Enroll ID: ${enroll.id}</h3>
         <p>${userCourse.description}</p>
         <span>Date: ${userCourse.startDate}</span><br>
         <span>Duration: ${userCourse.duration}</span><br>
-        <button class="cancelCourse-btn" data-id="${enroll.id}">Cancel course</button>
+        <button class="cancelCourse-btn cancel-enroll-btn" data-id="${enroll.id}">Cancel</button>
         </article>`;
     }
-
+    html += `</div>`;
     listingSection.innerHTML = html;
     document.querySelectorAll(`.cancelCourse-btn`).forEach(btn => {
         btn.addEventListener(`click`,async (e) => {
